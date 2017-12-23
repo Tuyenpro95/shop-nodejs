@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ./partials/head %>
+    <title>admin</title>
+    <!-- Morris Charts CSS -->
+    <link href="/static/admin/vendor/morrisjs/morris.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <% include ./partials/body %>
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Dashboard</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-tasks fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><%= count %></div>
+                                    <div>Post</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/admin/all-post">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge"><%= countUser %></div>
+                                    <div>User</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Home Page</span>
+                                <span class="pull-right">
+                                    <i class="fa fa-arrow-circle-right"></i>
+                                </span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- /.panel -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <ul class="timeline">
+                            <% for(var i =0; i< posts.length; i++) { %>
+                             <% if (i%2 == 0) {%>
+                              <li>
+                                    <div class="timeline-badge danger">
+                                        <i class="fa fa-bomb"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title"><%= posts[i].title %></h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p><%= posts[i].descriptions %></p>
+                                        </div>
+                                    </div>
+                                </li>
+                             <% } else {%>
+                              <li class="timeline-inverted">
+                                    <div class="timeline-badge warning">
+                                        <i class="fa fa-credit-card"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                            <h4 class="timeline-title"><%= posts[i].title %></h4>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <p><%= posts[i].descriptions %></p>
+                                        </div>
+                                    </div>
+                                </li>
+                             <% }%>
+                            <% } %>
+                            </ul>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+      <% include ./partials/script %>
+
+</body>
+
+</html>
